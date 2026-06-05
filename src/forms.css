@@ -1,0 +1,22 @@
+.form-error {
+  margin: 0;
+  background: #f0ded8;
+  color: #7c3023;
+  padding: 10px 12px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.button:disabled {
+  opacity: .65;
+  cursor: wait;
+  transform: none;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

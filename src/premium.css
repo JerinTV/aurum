@@ -1,0 +1,9 @@
+body {
+  scroll-behavior: smooth;
+}
+
+.story__portrait img,
+.producers__image img,
+.experience > img {
+  will-change: transform;
+}
