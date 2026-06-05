@@ -7,9 +7,9 @@
 }
 
 .menu-stage__layers {
-  inset: -38% -32% -58% 61%;
+  inset: -34% -26% -44% 70%;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 68% 0 0 62% / 48% 0 0 52%;
   background: linear-gradient(145deg, #3b2416 8%, #4d2d1b 52%, #6b4226 100%);
   box-shadow: none;
   transform: rotate(-8deg);
@@ -131,11 +131,13 @@
 }
 
 .menu-stage__dish {
-  left: 49%;
+  left: 46%;
   right: 0;
-  top: 13%;
-  bottom: 7%;
-  overflow: hidden;
+  top: 10%;
+  bottom: 3%;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
 }
 
 .menu-stage__dish figure {
@@ -194,26 +196,66 @@
     gap: 12px;
   }
 
+  .menu-stage__top > .eyebrow {
+    font-size: 10px;
+  }
+
   .menu-stage__top button {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
+    font-size: 8px;
+  }
+
+  .menu-stage__arrows button {
+    width: 30px;
+    height: 30px;
   }
 
   .menu-stage__copy {
-    width: 46vw;
+    top: 28%;
+    width: 45vw;
+  }
+
+  .menu-stage__copy h2 {
+    font-size: clamp(64px, 7vw, 92px);
+  }
+
+  .menu-stage__detail {
+    font-size: 11px;
+  }
+
+  .menu-stage__story {
+    font-size: 14px;
+  }
+
+  .menu-stage__dish {
+    left: 47%;
+    right: 0;
+    top: 11%;
+    bottom: 4%;
+  }
+
+  .menu-stage__dish figure {
+    width: min(48vw, 610px);
   }
 }
 
 @media (max-width: 900px) {
   .menu-stage {
     background: #fff;
-    padding-top: 130px;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    padding: 124px clamp(18px, 5vw, 34px) 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 
   .menu-stage__layers {
-    inset: 54% -55% -25% 8%;
-    border-radius: 50% 50% 0 0;
-    transform: rotate(-7deg);
+    inset: 47% -10% -12% 68%;
+    border-radius: 78% 0 0 0 / 42% 0 0 0;
+    transform: rotate(-8deg);
   }
 
   .menu-stage__top {
@@ -225,10 +267,31 @@
     gap: 10px;
   }
 
+  .menu-stage__top > .eyebrow {
+    align-self: center;
+    font-size: 10px;
+  }
+
   .menu-stage__top nav {
     grid-column: 1 / -1;
     grid-row: 2;
-    margin-top: 4px;
+    width: 100%;
+    margin-top: 2px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-stage__top nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-stage__top button {
+    flex: 0 0 auto;
+    width: 31px;
+    height: 31px;
+    font-size: 9px;
   }
 
   .menu-stage__top .menu-stage__arrows {
@@ -238,28 +301,72 @@
   }
 
   .menu-stage__copy {
+    position: relative;
+    left: auto;
     top: auto;
-    width: auto;
-    min-height: 410px;
-    padding-top: 0;
-    margin-top: -42px;
+    width: min(100%, 680px);
+    min-height: 0;
+    margin: 0;
+    padding: 0;
     transform: none;
   }
 
+  .menu-stage__copy > .eyebrow {
+    font-size: 10px;
+    letter-spacing: .24em;
+  }
+
   .menu-stage__copy h2 {
-    font-size: clamp(64px, 18vw, 86px);
+    margin: 12px 0 16px;
+    font-size: clamp(54px, 14vw, 86px);
+  }
+
+  .menu-stage__detail {
+    padding: 13px 0;
+    font-size: 10px;
+    line-height: 1.65;
+    letter-spacing: .14em;
   }
 
   .menu-stage__story {
-    font-size: 14px;
+    margin: 14px 0;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .menu-stage__taste {
+    margin-bottom: 15px;
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .menu-stage__taste strong {
+    font-size: 10px;
+    text-align: right;
+  }
+
+  .menu-stage__copy .text-link {
+    font-size: 9px;
   }
 
   .menu-stage__dish {
-    height: 440px;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: clamp(270px, 58vw, 460px);
+    display: grid;
+    place-items: center;
+    margin-top: 4px;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
   }
 
   .menu-stage__dish figure {
-    width: 125%;
+    width: min(96%, 560px);
   }
 
   .menu-stage__dish img {
@@ -279,5 +386,103 @@
   .menu-stage__arrows button {
     width: 34px;
     height: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-stage {
+    padding: 122px 18px 62px;
+    gap: 12px;
+  }
+
+  .menu-stage__layers {
+    inset: 54% -12% -10% 70%;
+  }
+
+  .menu-stage__top {
+    left: 16px;
+    right: 16px;
+    top: 20px;
+    gap: 8px;
+  }
+
+  .menu-stage__top nav {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .menu-stage__top button {
+    width: 29px;
+    height: 29px;
+    font-size: 8px;
+  }
+
+  .menu-stage__arrows button {
+    width: 31px;
+    height: 31px;
+  }
+
+  .menu-stage__copy h2 {
+    font-size: clamp(48px, 16vw, 70px);
+  }
+
+  .menu-stage__detail {
+    font-size: 9px;
+  }
+
+  .menu-stage__story {
+    font-size: 12px;
+  }
+
+  .menu-stage__taste {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .menu-stage__taste strong {
+    text-align: left;
+  }
+
+  .menu-stage__dish {
+    min-height: clamp(245px, 70vw, 380px);
+  }
+
+  .menu-stage__dish figure {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 420px) {
+  .menu-stage {
+    padding-inline: 14px;
+  }
+
+  .menu-stage__top {
+    left: 14px;
+    right: 14px;
+  }
+
+  .menu-stage__top > .eyebrow {
+    font-size: 9px;
+    letter-spacing: .2em;
+  }
+
+  .menu-stage__top button,
+  .menu-stage__arrows button {
+    width: 27px;
+    height: 27px;
+  }
+
+  .menu-stage__copy h2 {
+    font-size: clamp(44px, 15vw, 62px);
+  }
+
+  .menu-stage__dish {
+    min-height: 240px;
+  }
+
+  .menu-stage__dish figure {
+    width: 104%;
   }
 }

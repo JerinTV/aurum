@@ -1,0 +1,295 @@
+:root {
+  --mx: 50vw;
+  --my: 50vh;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  z-index: 98;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle 220px at var(--mx) var(--my), rgba(183, 139, 73, .16), transparent 70%);
+  mix-blend-mode: screen;
+  opacity: .8;
+}
+
+.progress {
+  box-shadow: 0 0 18px rgba(183, 139, 73, .75);
+}
+
+.nav__links a,
+.footer__links a {
+  position: relative;
+}
+
+.nav__links a:after,
+.footer__links a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+.nav__links a:hover:after,
+.footer__links a:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.brand {
+  transition: letter-spacing .45s cubic-bezier(.16, 1, .3, 1), filter .45s;
+}
+
+.brand:hover {
+  letter-spacing: .2em;
+  filter: drop-shadow(0 0 14px rgba(183, 139, 73, .32));
+}
+
+.hero:before,
+.experience:before,
+.reserve:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 223, 162, .16), transparent 24%),
+    radial-gradient(circle at 82% 72%, rgba(183, 139, 73, .14), transparent 28%);
+  animation: aurumAmbient 11s ease-in-out infinite alternate;
+}
+
+.hero__type {
+  width: 0;
+  max-width: max-content;
+  margin: 28px 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ead8b7;
+  border-right: 1px solid #d1aa68;
+  font-size: clamp(12px, 1.2vw, 16px);
+  line-height: 1.8;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  animation: typeAurum 3.2s steps(52, end) 1.45s forwards, blinkCaret .8s step-end infinite;
+}
+
+.button,
+.text-link,
+.menu-stage__top button,
+.menu-stage__arrows button,
+.faq summary,
+.visit__details > div,
+.story-book__page,
+.coastal-evening figure,
+.reserve__card,
+.footer__top .button {
+  will-change: transform;
+}
+
+.button,
+.visit__details > div,
+.story-book__page,
+.reserve__card,
+.faq,
+.coastal-evening figure {
+  position: relative;
+}
+
+.button:after,
+.story-book__page:before,
+.reserve__card:after,
+.faq:after,
+.coastal-evening figure:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border: 1px solid rgba(183, 139, 73, .28);
+  transform: scale(.985);
+  opacity: 0;
+  transition: opacity .45s, transform .45s;
+}
+
+.button:hover:after,
+.story-book__page:hover:before,
+.reserve__card:hover:after,
+.faq:hover:after,
+.coastal-evening figure:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.story-book__page,
+.visit__details > div,
+.reserve__card,
+.faq {
+  background-size: 140% 140%;
+  animation: paperBreath 9s ease-in-out infinite alternate;
+}
+
+.story-book__photo,
+.coastal-evening figure,
+.restaurant-story img,
+.experience > img {
+  animation: slowFloat 8s ease-in-out infinite alternate;
+}
+
+.story-book__photo--small,
+.coastal-evening__small {
+  animation-duration: 10s;
+  animation-delay: -2s;
+}
+
+.menu-stage__layers {
+  animation: brownWave 8s ease-in-out infinite alternate;
+}
+
+.menu-stage__dish figure img {
+  animation: dishHover 4.8s ease-in-out infinite alternate;
+}
+
+.menu-stage__top button {
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s, background .35s, color .35s;
+}
+
+.menu-stage__top button:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px rgba(91, 54, 33, .2), 0 10px 20px rgba(91, 54, 33, .12);
+}
+
+.menu-stage__top button.active {
+  box-shadow: 0 0 0 4px rgba(90, 54, 33, .1), 0 12px 26px rgba(90, 54, 33, .18);
+}
+
+.menu-stage__arrows button {
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), background .35s, color .35s;
+}
+
+.menu-stage__arrows button:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
+.visit__details > div:hover svg {
+  animation: iconPulse .9s ease-in-out;
+}
+
+.faq details[open] {
+  background: linear-gradient(90deg, rgba(183, 139, 73, .08), transparent);
+}
+
+.faq summary svg {
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), color .35s;
+}
+
+.faq details[open] summary svg {
+  color: #4d2d1b;
+  transform: rotate(180deg) scale(1.12);
+}
+
+.reserve input,
+.reserve select,
+.reserve textarea {
+  transition: border-color .35s, box-shadow .35s, padding-left .35s;
+}
+
+.reserve input:focus,
+.reserve select:focus,
+.reserve textarea:focus {
+  padding-left: 8px;
+  box-shadow: 0 8px 18px rgba(183, 139, 73, .08);
+}
+
+.footer__top {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__top:before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -35%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+  transform: skewX(-18deg);
+  animation: footerSweep 8s ease-in-out infinite;
+}
+
+@keyframes typeAurum {
+  to { width: 52ch; }
+}
+
+@keyframes blinkCaret {
+  50% { border-color: transparent; }
+}
+
+@keyframes aurumAmbient {
+  to { transform: translate3d(4%, -3%, 0) scale(1.08); opacity: .78; }
+}
+
+@keyframes paperBreath {
+  from { background-position: 0% 30%; }
+  to { background-position: 100% 70%; }
+}
+
+@keyframes slowFloat {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-10px) scale(1.015); }
+}
+
+@keyframes brownWave {
+  from { transform: rotate(-8deg) translate3d(0, 0, 0) scale(1); }
+  to { transform: rotate(-5deg) translate3d(-2%, 1%, 0) scale(1.05); }
+}
+
+@keyframes dishHover {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-8px) scale(1.015); }
+}
+
+@keyframes iconPulse {
+  50% { transform: scale(1.12) rotate(-5deg); }
+}
+
+@keyframes footerSweep {
+  0%, 35% { transform: translateX(0) skewX(-18deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(520%) skewX(-18deg); opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  body:before {
+    opacity: .35;
+  }
+
+  .hero__type {
+    max-width: min(84vw, 52ch);
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:before,
+  .hero:before,
+  .experience:before,
+  .reserve:after,
+  .hero__type,
+  .story-book__page,
+  .story-book__cover,
+  .story-book__photo,
+  .coastal-evening figure,
+  .restaurant-story img,
+  .experience > img,
+  .menu-stage__layers,
+  .menu-stage__dish figure img,
+  .footer__top:before {
+    animation: none !important;
+  }
+}

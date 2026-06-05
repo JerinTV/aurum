@@ -8,6 +8,8 @@ import "./coastal.css";
 import "./restaurant.css";
 import "./visual-menu.css";
 import "./menu-ratio.css";
+import "./visit-premium.css";
+import "./living-motion.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

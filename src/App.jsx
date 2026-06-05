@@ -107,6 +107,7 @@ function Hero() {
         <motion.span className="hero__line" variants={line}><span className="hero__word-wrap"><motion.span variants={word}>Beyond</motion.span></span><span className="hero__word-wrap"><motion.span variants={word}>dining.</motion.span></span></motion.span>
         <motion.span className="hero__line hero__line--accent" variants={line}><span className="hero__word-wrap"><motion.span variants={word}>A</motion.span></span><span className="hero__word-wrap"><motion.span variants={word}>coastal</motion.span></span><span className="hero__word-wrap"><motion.span variants={word}>ritual.</motion.span></span></motion.span>
       </motion.h1>
+      <motion.p className="hero__type" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.35, duration: .7 }}>Seasonal menus shaped by tide, fire and candlelight.</motion.p>
       <motion.div className="hero__actions" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.25, duration: .85, ease: [0.16, 1, 0.3, 1] }}>
         <a className="button button--light" href="#reserve">Reserve your evening <ArrowUpRight size={15} /></a>
         <a className="text-link" href="#menu">Explore the menu <ChevronRight size={14} /></a>
@@ -119,10 +120,35 @@ function Hero() {
 
 function Story() {
   return <section className="restaurant-story section-light" id="story">
-    <motion.div className="restaurant-story__heading" {...reveal}><p className="eyebrow">The restaurant</p><h2>Designed around<br />the <em>horizon.</em></h2><p>Aurum is a fourteen-table dining room where architecture, light and service move at the pace of the coast.</p></motion.div>
-    <motion.figure className="restaurant-story__main" {...imageReveal}><img src="/images/restaurant-interior.webp" alt="Aurum's ocean-facing restaurant interior" loading="lazy" /><figcaption><span>01 / The room</span><strong>Every table faces the sea</strong></figcaption></motion.figure>
-    <motion.div className="restaurant-story__details" {...reveal}><span>From arrival to last light</span><h3>A room made for<br />unhurried evenings.</h3><p>Natural stone, dark timber and open air frame the view without competing with it. Service is discreet, the music is low, and every table is given space to settle into the night.</p><div className="restaurant-story__points"><div><strong>14</strong><span>ocean-facing tables</span></div><div><strong>01</strong><span>seating each evening</span></div><div><strong>2.5 hr</strong><span>signature experience</span></div></div><a className="text-link text-link--dark" href="#experience">Discover the evening <ArrowUpRight size={14} /></a></motion.div>
-    <motion.figure className="restaurant-story__detail" {...imageReveal}><img src="/images/table-detail.webp" alt="An elegant table setting overlooking the ocean" loading="lazy" /><figcaption><span>02 / Your table</span><strong>Set for the evening</strong></figcaption></motion.figure>
+    <motion.div className="restaurant-story__intro" {...reveal}>
+      <p className="eyebrow">The restaurant</p>
+      <h2>Open the book<br />of <em>Aurum.</em></h2>
+      <p>After the hero, the story unfolds like a quiet chapter: pages of coastline, candlelight, and service written around the rhythm of Kerala.</p>
+    </motion.div>
+    <div className="story-book" aria-label="Aurum restaurant story book">
+      <motion.div className="story-book__cover" aria-hidden="true" initial={{ opacity: 1, rotateY: 0, x: 0 }} whileInView={{ opacity: 0, rotateY: -118, x: "-18%" }} viewport={{ once: true, margin: "-18%" }} transition={{ duration: 3.4, ease: [0.22, 1, 0.36, 1], opacity: { duration: .8, delay: 2.55 } }}>
+        <span>Aurum</span>
+        <strong>Coastal Table</strong>
+        <em>Chapter 01</em>
+      </motion.div>
+      <motion.div className="story-book__page story-book__page--left" initial={{ opacity: 0, rotateY: -18, x: -35 }} whileInView={{ opacity: 1, rotateY: 0, x: 0 }} viewport={{ once: true, margin: "-15%" }} transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}>
+        <span className="story-book__chapter">Chapter 01</span>
+        <h3>A dining room<br />written by the sea.</h3>
+        <p className="story-book__lead">Aurum is a fourteen-table coastal room where the evening is paced like a page turning slowly: first gold, then blue, then candlelight.</p>
+        <p>Natural stone, dark timber and open air frame the horizon without stealing attention from it. Service stays quiet. The music stays low. Every table is left with space to settle into the night.</p>
+        <div className="story-book__stats">
+          <div><strong>14</strong><span>ocean-facing tables</span></div>
+          <div><strong>01</strong><span>seating each evening</span></div>
+          <div><strong>2.5 hr</strong><span>signature experience</span></div>
+        </div>
+        <a className="text-link text-link--dark" href="#experience">Read the evening <ArrowUpRight size={14} /></a>
+      </motion.div>
+      <motion.div className="story-book__page story-book__page--right" initial={{ opacity: 0, rotateY: 16, x: 35 }} whileInView={{ opacity: 1, rotateY: 0, x: 0 }} viewport={{ once: true, margin: "-15%" }} transition={{ delay: .12, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}>
+        <figure className="story-book__photo story-book__photo--large"><img src="/images/restaurant-interior.webp" alt="Aurum's ocean-facing restaurant interior" loading="lazy" /><figcaption>The room faces west, toward the changing water.</figcaption></figure>
+        <figure className="story-book__photo story-book__photo--small"><img src="/images/table-detail.webp" alt="An elegant table setting at Aurum" loading="lazy" /><figcaption>Set for an unhurried evening.</figcaption></figure>
+        <div className="story-book__note"><span>Kovalam / Kerala</span><p>Come before sunset. Let the first course arrive only after the sky has begun to soften.</p></div>
+      </motion.div>
+    </div>
   </section>;
 }
 
@@ -131,7 +157,10 @@ function CoastalEvening() {
     <motion.div className="coastal-evening__hero" {...imageReveal}><img src="/images/sunset-table.webp" alt="An elegant private table overlooking the coast at sunset" loading="lazy" /><div className="coastal-evening__overlay"><p className="eyebrow">The golden hour</p><h2>Dinner begins<br /><em>before the first course.</em></h2></div></motion.div>
     <motion.div className="coastal-evening__copy" {...reveal}><span>01 / Arrive</span><h3>Come for the sunset.<br />Stay for the story.</h3><p>Your evening begins above the shoreline with a coastal aperitif. As the light softens, we guide you to the dining room for a menu paced around the changing horizon.</p><a className="text-link text-link--dark" href="#reserve">Plan your evening <ArrowUpRight size={13} /></a></motion.div>
     <motion.figure className="coastal-evening__arrival" {...imageReveal}><img src="/images/guest-arrival.webp" alt="Guests arriving at Aurum for dinner by the sea" loading="lazy" /><figcaption><span>02 / Settle in</span><strong>Blue hour at Aurum</strong></figcaption></motion.figure>
-    <motion.figure className="coastal-evening__aperitif" {...imageReveal}><img src="/images/coastal-aperitif.webp" alt="A botanical aperitif served beside the sea" loading="lazy" /><figcaption><span>03 / First taste</span><strong>Aperitif by the water</strong></figcaption></motion.figure>
+    <div className="coastal-evening__taste-stack">
+      <motion.figure className="coastal-evening__small" {...imageReveal}><img src="/images/table-detail.webp" alt="A small table detail before the aperitif service" loading="lazy" /><figcaption><span>03 / Detail</span><strong>Before the pour</strong></figcaption></motion.figure>
+      <motion.figure className="coastal-evening__aperitif" {...imageReveal}><img src="/images/coastal-aperitif.webp" alt="A botanical aperitif served beside the sea" loading="lazy" /><figcaption><span>04 / First taste</span><strong>Aperitif by the water</strong></figcaption></motion.figure>
+    </div>
   </section>;
 }
 
@@ -227,5 +256,13 @@ function Footer() {
 
 export default function App() {
   const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    const onPointerMove = (event) => {
+      document.documentElement.style.setProperty("--mx", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--my", `${event.clientY}px`);
+    };
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, []);
   return <><motion.div className="progress" style={{ scaleX: scrollYProgress }} /><Nav /><main><Hero /><Story /><CoastalEvening /><MenuSection /><Experience /><Visit /><Reservation /></main><Footer /></>;
 }
