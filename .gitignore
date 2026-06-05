@@ -2,3 +2,5 @@ node_modules/
 dist/
 data/reservations.json
 *.log
+
+.vercel
